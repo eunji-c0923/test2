@@ -4,19 +4,20 @@
   <meta charset="UTF-8">
   <title>포트폴리오 메인</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>🧡</text></svg>") 16 16, auto;
       font-family: 'Pretendard', sans-serif;
       background-color: black;
       color: white;
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     /* 별 배경 */
@@ -31,15 +32,37 @@
 
     .star {
       position: absolute;
-      background: white;
       border-radius: 50%;
-      opacity: 0.8;
-      animation: twinkle 2s infinite alternate;
+      opacity: 0.9;
+      animation: twinkle 1.5s infinite alternate;
+      box-shadow: 0 0 8px white;
+      filter: brightness(1.5);
     }
 
     @keyframes twinkle {
       0% { opacity: 0.3; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* 마우스 따라 도트별 */
+    .trail-star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: white;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 999;
+      box-shadow: 0 0 6px white;
+      animation: fadeOut 0.8s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.5);
+      }
     }
 
     /* 별똥별 */
@@ -88,7 +111,7 @@
       justify-content: center;
       gap: 60px;
       font-size: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       position: relative;
       z-index: 2;
     }
@@ -97,6 +120,23 @@
       color: white;
       text-decoration: none;
       transition: color 0.3s;
+      position: relative;
+    }
+
+    .navbar a::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: white;
+      margin-top: 6px;
+      transition: transform 0.3s;
+      transform: scaleX(0);
+      transform-origin: center;
+    }
+
+    .navbar a:hover::after {
+      transform: scaleX(1);
     }
 
     .navbar a:hover {
@@ -116,7 +156,7 @@
     }
 
     .slider {
-      width: 1500px;
+      width: 1000px;
       overflow: hidden;
       border-radius: 16px;
     }
@@ -159,7 +199,7 @@
   <!-- 로고 -->
   <div class="logo">
     <a href="./Hompage.html">
-      <img src="./img/Asterum.png" alt="로고">
+      <img src="img/Asterum.png" alt="로고">
     </a>
   </div>
 
@@ -172,7 +212,7 @@
 
   <!-- 슬라이더 -->
   <div class="slider-wrapper">
-    <img class="arrow left-arrow" src="./img/left.png" alt="이전">
+    <img class="arrow left-arrow" src="img/left.png" alt="이전">
     
     <div class="slider">
       <img src="img/KakaoTalk_20250509_152722850_02.jpg" alt="슬라이드1" class="slide active">
@@ -180,25 +220,29 @@
       <img src="img/KakaoTalk_20250509_152722850.jpg" alt="슬라이드3" class="slide">
     </div>
 
-    <img class="arrow right-arrow" src="./img/right.png" alt="다음">
+    <img class="arrow right-arrow" src="img/right.png" alt="다음">
   </div>
 
   <!-- 스크립트 -->
   <script>
-    // 별 생성
+    // 다양한 색상의 반짝이는 별 생성
     const starsContainer = document.getElementById('stars');
-    for (let i = 0; i < 100; i++) {
+    const colors = ['#ffffff', '#ffe9c4', '#dbe9ff', '#ffd6f0'];
+
+    for (let i = 0; i < 150; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
-      star.style.width = Math.random() * 2 + 1 + "px";
-      star.style.height = star.style.width;
+      const size = Math.random() * 2 + 1;
+      star.style.width = size + "px";
+      star.style.height = size + "px";
       star.style.top = Math.random() * 100 + "%";
       star.style.left = Math.random() * 100 + "%";
       star.style.animationDelay = Math.random() * 2 + "s";
+      star.style.background = colors[Math.floor(Math.random() * colors.length)];
       starsContainer.appendChild(star);
     }
 
-    // 슬라이드
+    // 슬라이드 제어
     const slides = document.querySelectorAll('.slide');
     const leftArrow = document.querySelector('.left-arrow');
     const rightArrow = document.querySelector('.right-arrow');
@@ -220,6 +264,16 @@
     });
 
     showSlide(current);
+
+    // 마우스 따라 도트별 생성
+    document.addEventListener('mousemove', e => {
+      const star = document.createElement('div');
+      star.classList.add('trail-star');
+      star.style.left = e.pageX + 'px';
+      star.style.top = e.pageY + 'px';
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 800);
+    });
   </script>
 </body>
 </html>
