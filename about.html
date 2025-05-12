@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me</title>
+  <style>
+    :root {
+       background: linear-gradient(to bottom, #5086c4, #b1d9ff, #9b8cee);
+      --primary: #ffffff;
+      --text-color: #2e0c4e;
+      --accent: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 60px 30px;
+      font-family: 'Pretendard', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      max-width: 1000px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+      .profile {
+    flex: 1 1 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile img {
+    width: 100%;
+    max-width: 840px; /* A4 가로폭 정도 */
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+  }
+
+    .resume {
+      flex: 2 1 400px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 4px;
+    }
+
+    .section p, .section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 5px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #000;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+      margin-right: 16px;
+    }
+
+    .download-btn:hover {
+      background-color: #ffe476;
+    }
+
+    .back {
+      display: inline-block;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      transition: color 0.3s;
+    }
+
+    .back:hover {
+      color: #fff7c2;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile, .resume {
+        max-width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile">
+      <img src="img/portfolio (9).jpg" alt="프로필 이미지">
+    </div>
+
+    <div class="resume">
+      <h1>About Me</h1>
+
+      <div class="section">
+        <h2>자기소개</h2>
+        <p>안녕하세요, 창의적인 웹 개발자 홍길동입니다. 사용자 경험과 시각적 완성도를 중요하게 생각하며, HTML/CSS, JavaScript, Java 기반 백엔드까지 폭넓은 기술 스택을 다룹니다.</p>
+      </div>
+
+      <div class="section">
+        <h2>학력</h2>
+        <ul>
+          <li>OO대학교 컴퓨터공학과 졸업 (2021)</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>경력</h2>
+        <ul>
+          <li>스타트업 A사 웹 프론트엔드 개발 (2021~2023)</li>
+          <li>프리랜서 웹사이트 10건 이상 구축</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>기술 스택</h2>
+        <ul>
+          <li>HTML, CSS, JavaScript, React</li>
+          <li>Java, JSP, Spring Boot</li>
+          <li>MySQL, Git, Figma</li>
+        </ul>
+      </div>
+
+      <a class="download-btn" href="resume.pdf" download>📄 이력서 다운로드</a>
+      <a class="back" href="index.html">← 홈으로 돌아가기</a>
+    </div>
+  </div>
+</body>
+</html>

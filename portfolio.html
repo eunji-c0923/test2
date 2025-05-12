@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>포트폴리오</title>
+  <style>
+    :root {
+      background: linear-gradient(to bottom, #5086c4, #b1d9ff, #9b8cee);
+      --primary: #ffffff;
+      --text-color: #f0f0f0;
+      --hover-shadow: rgba(255, 255, 255, 0.15);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Pretendard', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 60px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px var(--hover-shadow);
+    }
+
+    .back {
+      margin-top: 50px;
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .back:hover {
+      color: #fff7c2;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: row;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-nav {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20%;
+      cursor: pointer;
+    }
+
+    .modal-prev {
+      left: 0;
+    }
+
+    .modal-next {
+      right: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>나의 포트폴리오</h1>
+
+  <div class="gallery">
+    <img src="img/portfolio (10).jpg" alt="포트폴리오 이미지 1">
+    <img src="img/portfolio (11).jpg" alt="포트폴리오 이미지 2">
+    <img src="img/portfolio (12).jpg" alt="포트폴리오 이미지 3">
+    <img src="img/portfolio (13).jpg" alt="포트폴리오 이미지 4">
+    <img src="img/portfolio (14).jpg" alt="포트폴리오 이미지 5">
+    <img src="img/portfolio (21).jpg" alt="포트폴리오 이미지 6">
+    <img src="img/portfolio (22).jpg" alt="포트폴리오 이미지 7">
+    <img src="img/portfolio (23).jpg" alt="포트폴리오 이미지 8">
+    <img src="img/portfolio (24).jpg" alt="포트폴리오 이미지 9">
+    <img src="img/portfolio (25).jpg" alt="포트폴리오 이미지 10">
+    <img src="img/portfolio (26).jpg" alt="포트폴리오 이미지 11">
+    <img src="img/portfolio (27).jpg" alt="포트폴리오 이미지 12">
+    <img src="img/portfolio (28).jpg" alt="포트폴리오 이미지 13">
+    <img src="img/portfolio (29).jpg" alt="포트폴리오 이미지 14">
+    <img src="img/portfolio (30).jpg" alt="포트폴리오 이미지 15">
+    <img src="img/portfolio (1).jpg" alt="포트폴리오 이미지 16">
+    <img src="img/portfolio (2).jpg" alt="포트폴리오 이미지 17">
+    <img src="img/portfolio (3).jpg" alt="포트폴리오 이미지 18">
+    <img src="img/portfolio (4).jpg" alt="포트폴리오 이미지 19">
+    <img src="img/portfolio (5).jpg" alt="포트폴리오 이미지 20">
+    <img src="img/portfolio (6).jpg" alt="포트폴리오 이미지 21">
+    <img src="img/portfolio (7).jpg" alt="포트폴리오 이미지 22">
+    <img src="img/portfolio (35).jpg" alt="포트폴리오 이미지 23">
+    <img src="img/portfolio (36).jpg" alt="포트폴리오 이미지 24">
+    <img src="img/portfolio (37).jpg" alt="포트폴리오 이미지 25">
+    <img src="img/portfolio (38).jpg" alt="포트폴리오 이미지 26">
+    <img src="img/portfolio (40).jpg" alt="포트폴리오 이미지 27">
+    <img src="img/portfolio (41).jpg" alt="포트폴리오 이미지 28">
+    <img src="img/portfolio (42).jpg" alt="포트폴리오 이미지 29">
+    <img src="img/portfolio (43).jpg" alt="포트폴리오 이미지 30">
+    <img src="img/portfolio (44).jpg" alt="포트폴리오 이미지 31">
+    <img src="img/portfolio (45).jpg" alt="포트폴리오 이미지 32">
+    <img src="img/portfolio (39).jpg" alt="포트폴리오 이미지 33">
+    <img src="img/portfolio (46).jpg" alt="포트폴리오 이미지 34">
+    <img src="img/portfolio (47).jpg" alt="포트폴리오 이미지 35">
+    <img src="img/portfolio (48).jpg" alt="포트폴리오 이미지 36">
+    <img src="img/portfolio (49).jpg" alt="포트폴리오 이미지 37">
+    <img src="img/portfolio (53).jpg" alt="포트폴리오 이미지 38">
+    <img src="img/portfolio (54).jpg" alt="포트폴리오 이미지 39">
+  </div>
+
+  <a  <a class="back" href="index.html">← 홈으로 돌아가기</a>
+
+  <!-- 모달 구조 -->
+  <div class="modal" id="imgModal">
+    <div class="modal-nav modal-prev"></div>
+    <img id="modalImage" src="" alt="확대 이미지">
+    <div class="modal-nav modal-next"></div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('imgModal');
+    const modalImage = document.getElementById('modalImage');
+    const images = document.querySelectorAll('.gallery img');
+    const prevNav = document.querySelector('.modal-prev');
+    const nextNav = document.querySelector('.modal-next');
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+      const total = images.length;
+      if (index < 0) index = total - 1;
+      else if (index >= total) index = 0;
+      modalImage.src = images[index].src;
+      currentIndex = index;
+      modal.style.display = 'flex';
+    }
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        showImage(index);
+      });
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    prevNav.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex - 1);
+    });
+
+    nextNav.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex + 1);
+    });
+
+    // 키보드 방향키로 이전/다음 이미지 보기
+    document.addEventListener('keydown', (e) => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+        if (e.key === 'Escape') modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
