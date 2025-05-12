@@ -110,6 +110,28 @@
         transform: scale(2);
       }
     }
+
+          .footer {
+        margin-top: 60px;
+        padding: 20px 0;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+        font-size: 0.95rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: #ffe476;
+      }
+
+
   </style>
 </head>
 <body>
@@ -135,6 +157,8 @@
     <a href="index.html">홈</a>
     <a href="about.html">소개</a>
     <a href="portfolio.html">포트폴리오</a>
+    <a href="board.html">notic</a>
+    <a href="contact.html">contact</a>
   </nav>
 
   <!-- 유튜브 영상 -->
@@ -143,6 +167,7 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
+
 
   <script>
     const starsContainer = document.getElementById('stars');
@@ -175,6 +200,11 @@
       setTimeout(() => sparkle.remove(), 600);
     });
   </script>
+ 
+    <footer class="footer">
+      <p>© 2025 eunji_log. All Rights Reserved.</p>
+      <p><a href="mailto:didi09@naver.com">didi09@naver.com</a></p>
+    </footer>
 
 </body>
 </html>

@@ -5,17 +5,18 @@
   <title>About Me</title>
   <style>
     :root {
-       background: linear-gradient(to bottom, #5086c4, #b1d9ff, #9b8cee);
+      --bg-gradient: linear-gradient(to bottom, #5086c4, #b1d9ff, #9b8cee);
       --primary: #ffffff;
       --text-color: #2e0c4e;
-      --accent: #ffffff;
+      --accent: #ffeb3b;
+      --card-bg: rgba(255, 255, 255, 0.15);
     }
 
     body {
       margin: 0;
       padding: 60px 30px;
       font-family: 'Pretendard', sans-serif;
-      background-color: var(--bg-color);
+      background: var(--bg-gradient);
       color: var(--text-color);
       display: flex;
       justify-content: center;
@@ -29,54 +30,78 @@
       max-width: 1000px;
       width: 100%;
       flex-wrap: wrap;
+      animation: fadeInUp 1s ease;
     }
 
-      .profile {
-    flex: 1 1 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .profile img {
-    width: 100%;
-    max-width: 840px; /* A4 가로폭 정도 */
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    margin-bottom: 30px;
-  }
+    .profile {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+
+    .profile img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .profile img:hover {
+      transform: scale(1.02);
+    }
 
     .resume {
       flex: 2 1 400px;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--primary);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
     .section {
-      margin-bottom: 30px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .section h2 {
-      color: var(--accent);
+      color: var(--primary);
       font-size: 1.4rem;
       margin-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
       padding-bottom: 4px;
     }
 
     .section p, .section li {
       font-size: 1rem;
-      line-height: 1.6;
-      margin: 5px 0;
+      line-height: 1.7;
+      margin: 6px 0;
     }
 
     ul {
       padding-left: 20px;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: bold;
     }
 
     .download-btn {
@@ -115,11 +140,9 @@
         flex-direction: column;
         align-items: center;
       }
-
       .profile, .resume {
         max-width: 100%;
       }
-
       h1 {
         text-align: center;
       }
@@ -137,34 +160,46 @@
 
       <div class="section">
         <h2>자기소개</h2>
-        <p>안녕하세요, 창의적인 웹 개발자 홍길동입니다. 사용자 경험과 시각적 완성도를 중요하게 생각하며, HTML/CSS, JavaScript, Java 기반 백엔드까지 폭넓은 기술 스택을 다룹니다.</p>
+        <p>
+          여주대학교 건축과 전공 졸업한 지 12년이 지난 웹디자인 경력자입니다.<br> 
+          주로 패키지 디자인, 상세페이지 및 배너 제작 등 다양한 디자인 업무를 수행해왔습니다.<br>  
+          디자인 분야에서의 전문 지식을 바탕으로 고객 서비스 및 상품 마케팅에 기여해 왔습니다.<br> 
+
+          웹디자인 뿐만 아니라 보정/리터칭, 촬영, 디자인 및 마케팅 업무에도 능숙합니다.<br>  
+          특히 상품 관리와 배너디자인, 패키지디자인, 편집디자인 분야에서 경험을 쌓았습니다.<br>  
+      
+          다양한 분야에서 경험을 쌓은 저는 새로운 도전을 통해 창의적인 아이디어와 뛰어난 디자인 역량을 발휘하고자 합니다.<br> 
+          회사의 성장과 발전에 기여하여 함께 성공을 이루는 데 기쁨을 느낍니다.
+          
+          
+        </p>
       </div>
 
       <div class="section">
         <h2>학력</h2>
         <ul>
-          <li>OO대학교 컴퓨터공학과 졸업 (2021)</li>
+          <li>여주대학교 건축과 졸업 (2021)</li>
         </ul>
       </div>
 
       <div class="section">
         <h2>경력</h2>
         <ul>
-          <li>스타트업 A사 웹 프론트엔드 개발 (2021~2023)</li>
-          <li>프리랜서 웹사이트 10건 이상 구축</li>
+          <li>베이비 스튜디오 어시스던트 (5년10개월)</li>
+          <li>펠트박스  (1년10개월월)</li>
+          <li>(주)킹서진 (6년1개월)</li>
+          <li>다인내추럴(6개월)</li>
         </ul>
       </div>
 
       <div class="section">
         <h2>기술 스택</h2>
         <ul>
-          <li>HTML, CSS, JavaScript, React</li>
-          <li>Java, JSP, Spring Boot</li>
-          <li>MySQL, Git, Figma</li>
+          <li><span class="highlight">Frontend</span>: HTML, CSS, JavaScript, React</li>
+          <li><span class="highlight">Tools</span>: Photoshop, Illustration, Pro </li>
         </ul>
       </div>
 
-      <a class="download-btn" href="resume.pdf" download>📄 이력서 다운로드</a>
       <a class="back" href="index.html">← 홈으로 돌아가기</a>
     </div>
   </div>

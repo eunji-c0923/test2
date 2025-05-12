@@ -15,102 +15,106 @@
       margin: 0;
       padding: 60px 30px;
       font-family: 'Pretendard', sans-serif;
+      background: linear-gradient(to bottom, #5086c4, #b1d9ff, #9b8cee);
       color: var(--text-color);
-      background: var(--background);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     h1 {
-      font-size: 2.5rem;
+      text-align: center;
       color: var(--primary);
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
     }
 
     .board-container {
-      width: 100%;
-      max-width: 1000px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.15);
       padding: 30px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.15);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
     }
 
-    .board-header {
+    .top-bar {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
-    .search-bar input {
-      padding: 8px 12px;
-      border-radius: 8px;
+    .top-bar input[type="text"] {
+      padding: 10px;
+      font-size: 1rem;
       border: none;
+      border-radius: 8px;
       width: 200px;
     }
 
-    .write-btn {
-      padding: 10px 18px;
-      background-color: var(--primary);
+    .top-bar button {
+      background-color: #fff;
       color: #000;
-      border: none;
+      padding: 10px 18px;
+      font-size: 1rem;
       border-radius: 8px;
-      font-weight: bold;
+      border: none;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
+      transition: background-color 0.3s;
     }
 
-    .write-btn:hover {
+    .top-bar button:hover {
       background-color: #ffe476;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
     }
 
     th, td {
       padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      color: var(--primary);
     }
 
     th {
-      color: var(--accent);
+      background-color: rgba(255, 255, 255, 0.15);
+      font-weight: bold;
     }
 
-    tr:hover {
-      background-color: rgba(255, 255, 255, 0.08);
+    tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
     .pagination {
+      margin-top: 20px;
       display: flex;
       justify-content: center;
       gap: 10px;
     }
 
     .pagination a {
-      padding: 6px 12px;
+      padding: 8px 12px;
       border-radius: 6px;
-      background-color: var(--primary);
-      color: #000;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      transition: background-color 0.3s;
     }
 
     .pagination a:hover {
-      background-color: #ffe476;
+      background-color: #fff7c2;
+      color: #000;
     }
 
     .back {
-      margin-top: 30px;
-      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-top: 40px;
       color: var(--primary);
+      text-decoration: none;
       font-size: 1.1rem;
     }
 
@@ -121,14 +125,13 @@
 </head>
 <body>
 
-  <h1>게시판</h1>
+  <h1>📋 게시판</h1>
 
   <div class="board-container">
-    <div class="board-header">
-      <form class="search-bar" action="board.jsp" method="get">
-        <input type="text" name="keyword" placeholder="검색어를 입력하세요">
-      </form>
-      <a href="write.html" class="write-btn">글쓰기</a>
+
+    <div class="top-bar">
+      <input type="text" placeholder="검색어 입력">
+      <button>글쓰기</button>
     </div>
 
     <table>
@@ -137,39 +140,44 @@
           <th>번호</th>
           <th>제목</th>
           <th>작성자</th>
-          <th>작성일</th>
+          <th>날짜</th>
           <th>조회수</th>
         </tr>
       </thead>
       <tbody>
-        <!-- 게시글 목록 반복 영역 -->
         <tr>
-          <td>1</td>
-          <td><a href="view.html" style="color: var(--text-color); text-decoration: none;">알면 알수록 재밌는 HTML로 홈페이지 만들기 01</a></td>
-          <td>최각각</td>
+          <td>10</td>
+          <td>포트폴리오 완성했습니다!</td>
+          <td>홍길동</td>
           <td>2025-05-12</td>
-          <td>12</td>
+          <td>132</td>
         </tr>
         <tr>
-          <td>2</td>
-          <td><a href="view.html" style="color: var(--text-color); text-decoration: none;">알면 알수록 재밌는 HTML로 홈페이지 만들기 02</a></td>
-          <td>최각각</td>
+          <td>9</td>
+          <td>디자인 피드백 요청드립니다</td>
+          <td>김코딩</td>
           <td>2025-05-11</td>
-          <td>8</td>
+          <td>98</td>
         </tr>
+        <tr>
+          <td>8</td>
+          <td>JSP 게시판 구현 팁 공유</td>
+          <td>이개발</td>
+          <td>2025-05-10</td>
+          <td>104</td>
+        </tr>
+        <!-- 추가 항목들 -->
       </tbody>
     </table>
 
     <div class="pagination">
-      <a href="#">&laquo;</a>
       <a href="#">1</a>
       <a href="#">2</a>
       <a href="#">3</a>
-      <a href="#">&raquo;</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
     </div>
   </div>
-
-  <a class="back" href="index.html">← 홈으로 돌아가기</a>
 
 </body>
 </html>
