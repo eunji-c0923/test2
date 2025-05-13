@@ -11,6 +11,8 @@
       --text-color: #ffffff;
       --accent: #fff799;
       --bg-color: #000000;
+      --success-bg: rgba(240, 255, 240, 0.95);
+      --error-bg: rgba(255, 228, 225, 0.95);
     }
 
     body {
@@ -110,14 +112,12 @@
       text-decoration: underline;
     }
 
-    /* ✅ 성공 팝업 스타일 */
+    /* ✅ 팝업 메시지 공통 스타일 */
     .popup-message {
       position: fixed;
       top: 30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: rgba(255, 255, 255, 0.95);
-      color: #000;
       padding: 16px 30px;
       border-radius: 8px;
       font-size: 1.1rem;
@@ -127,12 +127,29 @@
       pointer-events: none;
       transition: opacity 0.4s ease, top 0.4s ease;
       z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .popup-message.show {
       opacity: 1;
       top: 60px;
       pointer-events: auto;
+    }
+
+    .popup-success {
+      background-color: var(--success-bg);
+      color: #0a5400;
+    }
+
+    .popup-error {
+      background-color: var(--error-bg);
+      color: #900000;
+    }
+
+    .popup-message i {
+      font-size: 1.4rem;
     }
   </style>
 </head>
@@ -160,15 +177,14 @@
     <a class="back" href="index.html">← 홈으로 돌아가기</a>
   </footer>
 
-  <!-- ✅ 팝업 메시지 요소 -->
-  <div class="popup-message" id="popup">메시지가 성공적으로 전송되었습니다!</div>
+  <!-- ✅ 팝업 메시지 -->
+  <div id="popup" class="popup-message"><i class="fas fa-check-circle"></i><span>메시지가 성공적으로 전송되었습니다!</span></div>
 
-  <!-- ✅ 자바스크립트 -->
   <script>
     const form = document.getElementById('contactForm');
     const popup = document.getElementById('popup');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
       fetch(form.action, {
@@ -180,23 +196,26 @@
       })
       .then(response => {
         if (response.ok) {
-          showPopup();
+          showPopup("메시지가 성공적으로 전송되었습니다!", true);
           form.reset();
         } else {
-          showPopup("전송에 실패했습니다. 다시 시도해주세요.");
+          showPopup("전송에 실패했습니다. 다시 시도해주세요.", false);
         }
       })
       .catch(() => {
-        showPopup("서버 오류로 전송이 실패했습니다.");
+        showPopup("서버 오류로 전송이 실패했습니다.", false);
       });
     });
 
-    function showPopup(message) {
-      popup.textContent = message || "메시지가 성공적으로 전송되었습니다!";
-      popup.classList.add('show');
+    function showPopup(message, success = true) {
+      popup.className = 'popup-message show ' + (success ? 'popup-success' : 'popup-error');
+      popup.innerHTML = `
+        <i class="fas ${success ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+        <span>${message}</span>
+      `;
       setTimeout(() => {
         popup.classList.remove('show');
-      }, 3000); // 3초 후 사라짐
+      }, 3000);
     }
   </script>
 
