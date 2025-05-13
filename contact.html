@@ -112,15 +112,15 @@
       text-decoration: underline;
     }
 
-    /* ✅ 팝업 메시지 공통 스타일 */
+    /* ✅ 팝업 메시지 조정 */
     .popup-message {
       position: fixed;
-      top: 30px;
+      top: 20px; /* ← 더 위로 이동 */
       left: 50%;
       transform: translateX(-50%);
-      padding: 16px 30px;
+      padding: 10px 22px; /* ← 더 작게 */
       border-radius: 8px;
-      font-size: 1.1rem;
+      font-size: 0.95rem; /* ← 폰트 크기 줄임 */
       font-weight: 500;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
       opacity: 0;
@@ -129,12 +129,12 @@
       z-index: 9999;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .popup-message.show {
       opacity: 1;
-      top: 60px;
+      top: 40px; /* 애니메이션 시작 위치 */
       pointer-events: auto;
     }
 
@@ -149,7 +149,7 @@
     }
 
     .popup-message i {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   </style>
 </head>
@@ -189,9 +189,7 @@
 
       fetch(form.action, {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
+        headers: { 'Accept': 'application/json' },
         body: new FormData(form)
       })
       .then(response => {
